@@ -1,0 +1,12 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="player.png" transparentColor="">
+ <animation title="normal" delay="1500">
+  <cut w="48" x="64" y="1296" h="48" row="1" col="1"/>
+  <cut w="48" x="232" y="1296" h="48" row="1" col="1"/>
+ </animation>
+ <animation title="angry" delay="1500">
+  <cut w="48" x="120" y="1296" h="48" row="1" col="1"/>
+  <cut w="48" x="176" y="1296" h="48" row="1" col="1"/>
+  <cut w="48" x="8" y="1296" h="48" row="1" col="1"/>
+ </animation>
+</sprites>
