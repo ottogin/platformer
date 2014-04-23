@@ -1,0 +1,13 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="firebal.png" transparentColor="">
+ <animation title="fly" delay="150">
+  <cut w="54" x="9" y="278" h="19" row="1" col="1"/>
+  <cut w="58" x="454" y="279" h="17" row="1" col="1"/>
+  <cut w="56" x="71" y="280" h="17" row="1" col="1"/>
+  <cut w="56" x="135" y="280" h="17" row="1" col="1"/>
+  <cut w="61" x="194" y="280" h="16" row="1" col="1"/>
+  <cut w="53" x="266" y="280" h="16" row="1" col="1"/>
+  <cut w="58" x="325" y="280" h="16" row="1" col="1"/>
+  <cut w="56" x="392" y="280" h="16" row="1" col="1"/>
+ </animation>
+</sprites>
