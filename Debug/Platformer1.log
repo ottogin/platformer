@@ -1,4 +1,4 @@
-﻿Build started 24.04.2014 13:20:19.
+﻿Build started 26.04.2014 20:10:47.
      1>Project "C:\Users\Asus\Documents\CodeBlocks\Игрушки\platformer\Platformer1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Asus\Documents\Sfml\SFML-2.1\include" /ZI /nologo /W3 /WX- /Od /Oy- /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
@@ -23,13 +23,13 @@
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\level.h(318): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\level.h(340): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\level.h(341): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(26): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(27): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(27): warning C4305: '=' : truncation from 'double' to 'float'
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(28): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(30): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(61): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(66): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(67): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(29): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(31): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(63): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(68): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\enemes.h(69): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\stat.h(83): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\stat.h(98): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\stat.h(107): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
@@ -72,6 +72,8 @@
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\stat.h(274): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\draw_text.h(71): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\draw_text.h(74): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\inventory.h(91): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\inventory.h(125): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\bullet.h(22): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\bullet.h(23): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\bullet.h(36): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
@@ -79,52 +81,56 @@
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\bullet.h(38): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\bullet.h(44): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\bullet.h(54): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(73): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(74): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(89): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(93): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(100): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(103): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(108): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(123): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(125): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(136): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(141): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(142): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(180): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(183): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(227): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(265): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(266): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(335): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(343): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(345): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(350): warning C4244: 'initializing' : conversion from 'sf::Int64' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(390): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(398): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(455): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(466): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(471): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(474): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(477): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(499): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(499): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(507): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(516): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(520): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(521): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(521): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(537): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(538): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(538): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(550): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(552): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(553): warning C4305: '=' : truncation from 'double' to 'float'
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(554): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(555): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(584): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(589): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(593): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(76): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(77): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(92): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(96): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(103): warning C4244: '-=' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(106): warning C4244: '+=' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(111): warning C4244: '=' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(126): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(128): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(139): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(144): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(145): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(183): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(186): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(230): warning C4244: 'argument' : conversion from 'const int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(274): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(275): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(276): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(355): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(363): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(365): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(370): warning C4244: 'initializing' : conversion from 'sf::Int64' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(411): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(419): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(461): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(468): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(492): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(518): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(523): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(526): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(529): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(551): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(551): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(559): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(561): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(565): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(566): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(566): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(582): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(583): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(583): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(595): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(597): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(598): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(599): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(600): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(631): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(639): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(644): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\asus\documents\codeblocks\игрушки\platformer\source.cpp(648): warning C4018: '<' : signed/unsigned mismatch
      1>c:\users\asus\documents\codeblocks\игрушки\platformer\level.h(312): warning C4715: 'Level::GetObject' : not all control paths return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Asus\Documents\CodeBlocks\Игрушки\platformer\Debug\Platformer1.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Asus\Documents\Sfml\SFML-2.1\lib" "sfml-graphics-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" "sfml-audio-s-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Asus\Documents\CodeBlocks\Игрушки\platformer\Debug\Platformer1.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Asus\Documents\CodeBlocks\Игрушки\platformer\Debug\Platformer1.lib" /MACHINE:X86 Debug\Source.obj
@@ -182,4 +188,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.00
+Time Elapsed 00:01:34.49

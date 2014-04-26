@@ -1,0 +1,8 @@
+<!DOCTYPE HandMadedItems>
+<sprites image="Data/items_icons.png">
+  <item number ="0" title="empty slot" w="32" x="96" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="1" title="sword" w="32" x="0" y="0" h="32" hp ="0" mp ="0" dmg ="10"/>
+  <item number ="2" title="hat" w="32" x="32" y="0" h="32" hp ="10" mp ="10" dmg ="0"/>
+  <item number ="3" title="boots" w="32" x="0" y="32" h="32" hp ="0" mp ="20" dmg ="0"/>
+  <item number ="4" title="body"  w="32" x="32" y="32" h="32" hp ="50" mp ="0" dmg ="0"/>
+</sprites>

@@ -81,6 +81,7 @@
     <ClInclude Include="Draw_text.h" />
     <ClInclude Include="Enemes.h" />
     <ClInclude Include="bullet.h" />
+    <ClInclude Include="Inventory.h" />
     <ClInclude Include="level.h" />
     <ClInclude Include="Stat.h" />
     <ClInclude Include="tinystr.h" />

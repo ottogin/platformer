@@ -15,6 +15,7 @@ public:
 	int max_hp;
 	int mp;
 	int max_mp;
+	bool empty;
 	int w;
 	int h;
 	int damage;
@@ -29,6 +30,7 @@ public:
 		max_hp = 100;
 		hp = max_hp;
 		h = 23;
+		empty = 0;
 		w = 50;
 		damage = 10;
 		anim.loadFromXML(name, enemys_texture);

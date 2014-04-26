@@ -12,6 +12,7 @@
 #include "Draw_text.h"
 #include "Vdamage.h"
 #include <vector>  
+#include "inventory.h"
 #include "bullet.h"
 
 using namespace sf;
@@ -24,6 +25,8 @@ const int weigth = 1000;
 int camera_x = 0, camera_y = 0;
 bool on_level = 0;
 bool on_main_menu = 1;
+bool on_inventar = 0;
+bool i_pressed = 0;
 bool up_pressed;
 bool down_pressed;
 bool hold_e;
@@ -249,9 +252,14 @@ int main()
 			main_menu.setTexture(main_menu_texture);
 
 			Texture play_button_texture;
-			play_button_texture.loadFromFile("Data/play_button.jpg");
+			play_button_texture.loadFromFile("Data/play_button.png");
 			Sprite play_button;
 			play_button.setTexture(play_button_texture);
+
+			Texture play_button_cursor_texture;
+			play_button_cursor_texture.loadFromFile("Data/play_button_cursor.jpg");
+			Sprite play_button_cursor;
+			play_button_cursor.setTexture(play_button_cursor_texture);
 			
 
 			Texture play_button_pressed_texture;
@@ -259,13 +267,16 @@ int main()
 			Sprite play_button_pressed;
 			play_button_pressed.setTexture(play_button_pressed_texture);
 
+
 			int play_button_x = weigth / 2 - play_button.getTextureRect().width / 2;
 			int play_button_y = ground / 2 - play_button.getTextureRect().height / 2;
 
-			play_button.setPosition(play_button_x, play_button_y);
+			play_button.setPosition(play_button_x + 5, play_button_y + 5);
+			play_button_cursor.setPosition(play_button_x, play_button_y);
 			play_button_pressed.setPosition(play_button_x, play_button_y);
 
 			bool play_is_pressed = 0;
+			bool cursor_is_on_button = 0;
 
 			while(on_main_menu && window.isOpen())
 			{
@@ -279,7 +290,9 @@ int main()
 
 				window.clear(Color(127, 127, 127));
 
-				if (cursor_on_button(play_button, window) && Mouse::isButtonPressed(Mouse::Left))
+				cursor_is_on_button = cursor_on_button(play_button, window) ;
+
+				if (cursor_is_on_button && Mouse::isButtonPressed(Mouse::Left))
 				{
 					play_is_pressed = 1;
 
@@ -292,10 +305,16 @@ int main()
 					}
 
 				window.draw(main_menu);
-				if (play_is_pressed)
-					window.draw(play_button_pressed);
-				else 
+				
+				if(!cursor_is_on_button)
 					window.draw(play_button);
+				else
+				{
+					if (play_is_pressed)
+						window.draw(play_button_pressed);
+					else 
+						window.draw(play_button_cursor);
+				}
 				window.display();
 			}
 		}
@@ -332,6 +351,7 @@ int main()
 
 			////////создание персонажей///////
 			Object pl = lvl.GetObject("player_resp");
+			inventory inv;
 			player katja(player_texture, lvl, pl.rect.left, pl.rect.top + pl.rect.height);
 			statis stat(player_texture, alpha);
 			std::vector<enemy> enemys;
@@ -375,59 +395,103 @@ int main()
 				cursor.y -= window.getPosition().y + 30 - camera_y;
 
 				///////////////обработка нажатий//////////////////////
-
-				if (Keyboard::isKeyPressed(Keyboard::Up))
+				if(!on_inventar)
 				{
-					up_pressed = 1;
-				}
-				if (Keyboard::isKeyPressed(Keyboard::Down))
-				{
-					down_pressed = 1;
-				}
-				if (Keyboard::isKeyPressed(Keyboard::Right) && !katja.on_ladder_last)
-				{
-					katja.set("walk");
-					katja.dx = 0.1;
-					f_L_is_last = 0;
-					f_run = 1;
-					stat.break_casting();
-				}
-				if (Keyboard::isKeyPressed(Keyboard::Left) && !katja.on_ladder_last)
-				{
-					katja.set("walk");
-					katja.dx =  -0.1;
-					katja.flip(1);
-					f_L_is_last = 1;
-					f_run = 1;
-					stat.break_casting();
-				}
-				if (Keyboard::isKeyPressed(Keyboard::Q))
-				{
-					/*if (katja.can_shot == 1)
-					{*/
-						if_attack = 1;
-						if (f_run)
-							katja.set("2run_attack");
-						else 
-							katja.set("1attack");
-						if (katja.dx < 0 || f_L_is_last)
-							katja.flip(1);
-						we = 42;
-						stat.break_casting();
-						katja.can_shot = 0;
-					/*}*/
-				}
-
-				if (Keyboard::isKeyPressed(Keyboard::E))
-				{
-					if (!hold_e && katja.can_shot == 1 && stat.mp >= 10)
+					if (Keyboard::isKeyPressed(Keyboard::Up))
 					{
-						hold_e = 1;
-						stat.mp -= 10;
-						stat.casting(2);
-						katja.can_shot = 0;
+						up_pressed = 1;
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Down))
+					{
+						down_pressed = 1;
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Right) && !katja.on_ladder_last)
+					{
+						katja.set("walk");
+						katja.dx = 0.1;
+						f_L_is_last = 0;
+						f_run = 1;
+						stat.break_casting();
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Left) && !katja.on_ladder_last)
+					{
+						katja.set("walk");
+						katja.dx =  -0.1;
+						katja.flip(1);
+						f_L_is_last = 1;
+						f_run = 1;
+						stat.break_casting();
+					}
+					if (Keyboard::isKeyPressed(Keyboard::Q))
+					{
+						/*if (katja.can_shot == 1)
+						{*/
+							if_attack = 1;
+							if (f_run)
+								katja.set("2run_attack");
+							else 
+								katja.set("1attack");
+							if (katja.dx < 0 || f_L_is_last)
+								katja.flip(1);
+							we = 42;
+							stat.break_casting();
+							katja.can_shot = 0;
+						/*}*/
+					}
+
+					if (Keyboard::isKeyPressed(Keyboard::E))
+					{
+						if (!hold_e && katja.can_shot == 1 && stat.mp >= 10)
+						{
+							hold_e = 1;
+							stat.mp -= 10;
+							stat.casting(2);
+							katja.can_shot = 0;
+						}
+					}
+
+
+					bool f_spase = 0;
+					if (Keyboard::isKeyPressed(Keyboard::Space)) 
+					{
+						f_spase = 1;
+						if (katja.on_ground)
+						{
+							katja.set("jump");
+							katja.dy = -0.41;
+							katja.on_ground = 0;
+						}
+						if (katja.dx < 0)
+							katja.flip(1);
+						stat.break_casting();
+					}
+					for (int i = 0; i < enemys.size(); i++)
+					{
+						if (cursor.x <= (enemys[i].GetRect().left + enemys[i].GetRect().width) && cursor.x >= enemys[i].GetRect().left)
+							if (cursor.y >= enemys[i].GetRect().top && cursor.y <= (enemys[i].GetRect().top + enemys[i].GetRect().height))
+								if (Mouse::isButtonPressed(Mouse::Left))
+								{
+									stat.setTarget(&enemys[i].hp, 100, 0, 0, &enemys[i].anim);
+									if (enemys[i].hp == 0 && enemys[i].empty == 0)
+									{
+										inv.add(rand() % 4 + 1);
+										enemys[i].empty = 1;
+									}
+								}
 					}
 				}
+				if (Keyboard::isKeyPressed(Keyboard::I))
+				{
+					i_pressed = 1;	
+				}
+				else 
+				{
+					if (i_pressed)
+					{
+						i_pressed = 0;	
+						on_inventar = 1 - on_inventar;	
+					}
+				}	
 
 				if (Keyboard::isKeyPressed(Keyboard::F7))
 				{
@@ -444,21 +508,9 @@ int main()
 				}
 				else 
 					hold_e = 0;
+				////////////////////// ЛАЖА /////////////////
 
-				bool f_spase = 0;
-				if (Keyboard::isKeyPressed(Keyboard::Space)) 
-				{
-					f_spase = 1;
-					if (katja.on_ground)
-					{
-						katja.set("jump");
-						katja.dy = -0.41;
-						katja.on_ground = 0;
-					}
-					if (katja.dx < 0)
-						katja.flip(1);
-					stat.break_casting();
-				}
+
 				/*if (katja.dy < 0 && !f_spase && !katja.on_ladder_last)
 					katja.dy = 0;*/
 				camera_x = 0;
@@ -506,13 +558,6 @@ int main()
 				///////////// cтолконовения с врагами///////////////////
 				for (int i = 0; i < enemys.size(); i++)
 				{
-					enemys[i].update(timer);
-					if (cursor.x <= (enemys[i].GetRect().left + enemys[i].GetRect().width) && cursor.x >= enemys[i].GetRect().left)
-						if (cursor.y >= enemys[i].GetRect().top && cursor.y <= (enemys[i].GetRect().top + enemys[i].GetRect().height))
-							if (Mouse::isButtonPressed(Mouse::Left))
-							{
-								stat.setTarget(&enemys[i].hp, 100, 0, 0, &enemys[i].anim);
-							}
 					for (int j = 0; j < bullets.size(); j++)
 					{
 						if (bullets[j].GetRect().intersects(enemys[i].GetRect()) && enemys[i].hp > 0)
@@ -566,21 +611,31 @@ int main()
 				}
 
 				/////////////////////////////updates////////////////////////////////
-				katja.update(timer, we);
-				stat.update(timer);
-				lvl.Draw(window);
-				int ii = 0;
-				while (ii != bullets.size())
+
+				if (!on_inventar)
 				{
-					bullets[ii].update(timer);
-					//printf("%d \n", bullets[ii].x);
-					if (bullets[ii].del)
+					katja.update(timer, we);
+					stat.update(timer);
+					int ii = 0;
+					while (ii != bullets.size())
 					{
-						bullets.erase(bullets.begin() + ii, bullets.begin() + ii + 1);
-						ii--;
+						bullets[ii].update(timer);
+						//printf("%d \n", bullets[ii].x);
+						if (bullets[ii].del)
+						{
+							bullets.erase(bullets.begin() + ii, bullets.begin() + ii + 1);
+							ii--;
+						}
+						ii++;
 					}
-					ii++;
+					for (int i = 0; i < enemys.size(); i++)
+					{
+						enemys[i].update(timer);
+					}
 				}
+				/////////// вырисовка //////////////
+
+				lvl.Draw(window);
 				for (int i = 0; i < coins.size(); i++)
 				{
 					coin_sprite.setPosition(coins[i].rect.left, coins[i].rect.top);
@@ -594,6 +649,10 @@ int main()
 					enemys[i].draw(window, int(enemys[i].x) , int(enemys[i].y));
 				katja.draw(window, int(katja.x), int(katja.y));
 				stat.draw(window, camera_x, camera_y, alpha);
+				if (on_inventar)
+				{
+					inv.draw(window, camera_x, camera_y);
+				}
 				window.display();
 			}
 		}

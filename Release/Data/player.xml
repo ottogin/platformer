@@ -1,0 +1,35 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="New_sprites.png" transparentColor="BAFECA">
+ <animation title="walk" delay="150">
+  <cut w="28" x="168" y="537" h="47" row="1" col="1"/>
+  <cut w="31" x="208" y="537" h="47" row="1" col="1"/>
+  <cut w="30" x="248" y="538" h="46" row="1" col="1"/>
+  <cut w="32" x="288" y="539" h="45" row="1" col="1"/>
+  <cut w="31" x="329" y="539" h="45" row="1" col="1"/>
+  <cut w="32" x="368" y="539" h="45" row="1" col="1"/>
+ </animation>
+ <animation title="1attack" delay="190">
+  <cut w="31" x="8" y="602" h="46" row="1" col="1"/>
+  <cut w="40" x="48" y="602" h="46" row="1" col="1"/>
+ </animation>
+ <animation title="jump" delay="190">
+  <cut w="28" x="168" y="538" h="46" row="1" col="1"/>
+  <cut w="31" x="208" y="537" h="47" row="1" col="1"/>
+  <cut w="28" x="250" y="539" h="45" row="1" col="1"/>
+ </animation>
+ <animation title="stay" delay="1000">
+  <cut w="28" x="48" y="537" h="47" row="1" col="1"/>
+  <cut w="28" x="88" y="537" h="47" row="1" col="1"/>
+  <cut w="28" x="128" y="539" h="45" row="1" col="1"/>
+ </animation>
+<animation title="2run_attack" delay="160">
+  <cut w="28" x="168" y="537" h="47" row="1" col="1"/>
+  <cut w="31" x="208" y="537" h="47" row="1" col="1"/>
+  <cut w="30" x="248" y="538" h="46" row="1" col="1"/>
+  <cut w="47" x="328" y="601" h="47" row="1" col="1"/>
+ </animation>
+ <animation title="ladder" delay="150">
+   <cut w="26" x="240" y="657" h="47" row="1" col="1"/>
+   <cut w="-26" x="266" y="657" h="47" row="1" col="1"/>
+ </animation>
+</sprites>
