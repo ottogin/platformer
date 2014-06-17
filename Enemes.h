@@ -1,9 +1,10 @@
-#pragma once
+	#pragma once
 
 #include <SFML/Graphics.hpp>
 #include "anim.h"
 #include <iostream>
 #include "level.h"
+#include "inventory.h"
 
 
 class enemy
@@ -15,7 +16,8 @@ public:
 	int max_hp;
 	int mp;
 	int max_mp;
-	bool empty;
+	inventory inv;
+	bool should_draw_inv;
 	int w;
 	int h;
 	int damage;
@@ -30,11 +32,14 @@ public:
 		max_hp = 100;
 		hp = max_hp;
 		h = 23;
-		empty = 0;
 		w = 50;
 		damage = 10;
+		should_draw_inv = 0;
 		anim.loadFromXML(name, enemys_texture);
 		objects = levl.GetAllObjects();	
+		inv.set_not_main(9);
+		inv.item_list[0] = it.list[15];
+		inv.item_list[1] = it.list[20];
 	}
 
 	void update(float time)
@@ -56,6 +61,7 @@ public:
 			anim.set("die");
 			anim.tick(time);
 		}
+
 	}
 
 	FloatRect GetRect()
@@ -63,6 +69,10 @@ public:
 		return FloatRect(x, y - h, w, h);
 	}
 
+	IntRect GetIntRect()
+	{
+		return IntRect(x, y - h, w, h);
+	}
      bool collision()
 	{
 		for (int i = 0; i < objects.size(); i++)
@@ -87,9 +97,13 @@ public:
 		return 0;
 	}
 
-	void draw(RenderWindow &window,int x=0, int y=0)
+	 void draw(RenderWindow &window, int sx, int sy, inventory &inve)
 	{
 		anim.draw(window, x, y);
+		if (should_draw_inv)
+		{
+			inv.draw_else(window, x, y, sx, sy, inve);
+		}
 	}
 
 	void set(String name)

@@ -47,11 +47,6 @@ int max(int a, int b)
 	return a;
 }
 
-struct point
-{
-	int x, y;
-};
-
 class player
 {
 public:
@@ -61,6 +56,7 @@ public:
 	bool on_ground; 
 	int w;
 	float can_be_hit;
+	float can_hit;
 	float can_shot;
 	int h;
 	AnimationManager anim;
@@ -78,6 +74,7 @@ public:
 		w = 32;
 		h = 47;
 		can_be_hit = 1;
+		can_hit = 1;
 		can_shot = 1;
 		on_ground = 0;
 		on_ladder = 0;
@@ -92,10 +89,20 @@ public:
 			can_be_hit += 2 * a * timer;
 		else 
 			can_be_hit = 1;
+
 		if (can_shot < 1)
 			can_shot += 2 * a * timer;
 		else 
 			can_shot = 1;
+
+		if (can_hit < 1)
+			can_hit += 3 * a * timer;
+		else 
+			can_hit = 1;
+
+		if (can_hit < 0.5)
+			anim.set("1attack");
+
 		if (kx == 0)
 			x += 2 * dx * timer;
 		x += kx * timer;
@@ -205,24 +212,6 @@ public:
 		anim.flip(b);
 	}
 };
-
-bool cursor_on_button(Sprite &a, Window &window, int smx = 0, int smy = 0)
-{
-	bool f = 0;
-
-	point cursor;
-
-	cursor.x = Mouse::getPosition().x;
-	cursor.y = Mouse::getPosition().y;
-		
-	cursor.x -= window.getPosition().x + 8 - smx;
-	cursor.y -= window.getPosition().y + 30 - smy;
-
-	if (cursor.x <= (a.getPosition().x + a.getTextureRect().width) && cursor.x >= a.getPosition().x)
-		if (cursor.y >= a.getPosition().y && cursor.y <= (a.getPosition().y + a.getTextureRect().height))
-			f = 1;
-	return f;
-}
 
 int main()	
 {
@@ -336,6 +325,7 @@ int main()
 			Texture coin_texture;
 			Texture enemys_texture;
 			Texture alpha;
+			Texture sword_texture;
 			player_texture.loadFromFile("Data/player.png");
 			bullet_texture.loadFromFile("Data/firebal.png");
 			alpha.loadFromFile("Data/alpha.png");
@@ -359,6 +349,7 @@ int main()
 			std::vector<Object> enemys_objects = lvl.GetObjects("enemy_resp");
 			std::vector<Object> coins = lvl.GetObjects("coin");
 			hold_e = 0;
+			bool mouse_pressed = 0;
 
 			for (int i = 0; i < enemys_objects.size(); i++)
 			{
@@ -424,8 +415,8 @@ int main()
 					}
 					if (Keyboard::isKeyPressed(Keyboard::Q))
 					{
-						/*if (katja.can_shot == 1)
-						{*/
+					   if (katja.can_hit == 1)
+						{
 							if_attack = 1;
 							if (f_run)
 								katja.set("2run_attack");
@@ -435,16 +426,14 @@ int main()
 								katja.flip(1);
 							we = 42;
 							stat.break_casting();
-							katja.can_shot = 0;
-						/*}*/
+							katja.can_hit = 0;
+						}
 					}
-
 					if (Keyboard::isKeyPressed(Keyboard::E))
 					{
 						if (!hold_e && katja.can_shot == 1 && stat.mp >= 10)
 						{
 							hold_e = 1;
-							stat.mp -= 10;
 							stat.casting(2);
 							katja.can_shot = 0;
 						}
@@ -467,17 +456,21 @@ int main()
 					}
 					for (int i = 0; i < enemys.size(); i++)
 					{
+						
 						if (cursor.x <= (enemys[i].GetRect().left + enemys[i].GetRect().width) && cursor.x >= enemys[i].GetRect().left)
 							if (cursor.y >= enemys[i].GetRect().top && cursor.y <= (enemys[i].GetRect().top + enemys[i].GetRect().height))
 								if (Mouse::isButtonPressed(Mouse::Left))
 								{
 									stat.setTarget(&enemys[i].hp, 100, 0, 0, &enemys[i].anim);
-									if (enemys[i].hp == 0 && enemys[i].empty == 0)
-									{
-										inv.add(rand() % 4 + 1);
-										enemys[i].empty = 1;
-									}
+									if (enemys[i].hp == 0)
+										mouse_pressed = 1;
 								}
+								else
+									if (enemys[i].hp == 0 && mouse_pressed)
+									{
+										enemys[i].should_draw_inv = 1 - enemys[i].should_draw_inv;
+										mouse_pressed = 0;
+									}
 					}
 				}
 				if (Keyboard::isKeyPressed(Keyboard::I))
@@ -496,14 +489,44 @@ int main()
 				if (Keyboard::isKeyPressed(Keyboard::F7))
 				{
 					std::ifstream in("Data/saves.txt");
-					in >> stat.hp >> stat.mp >> katja.x >> katja.y;
+					in >> stat.hp >> stat.mp >> katja.x >> katja.y >> inv.bag_size;
+					for (int i = 0; i < inv.bag_size; i++)
+					{
+						int noi;
+						in >> noi;
+						inv.item_list[i] = it.list[noi];
+					}
+					int noe;
+					in >> noe;
+					for (int i = 0; i < noe; i++)
+					{
+						in >> enemys[i].hp >> enemys[i].x >> enemys[i].y >> enemys[i].inv.bag_size;
+						for (int j = 0; j < enemys[i].inv.bag_size; j ++)
+						{
+							int noei;
+							in >> noei;
+
+						}
+					}
 					in.close();
 				}
 				if (Keyboard::isKeyPressed(Keyboard::F6))
 				{
 					std::ofstream out ("Data/saves.txt");
 					out.clear();
-					out << stat.hp << " " << stat.mp << " " << katja.x << " " << katja.y;
+					out << stat.hp << " " << stat.mp << " " << katja.x << " " << katja.y << " " << inv.bag_size << std::endl;
+					for (int i = 0; i < inv.bag_size; i++)
+						out << inv.item_list[i].number << " ";
+					out << std::endl;
+					out << enemys.size();
+					out << std::endl;
+					for (int i = 0; i < enemys.size(); i++)
+					{
+						out << enemys[i].hp << " " << enemys[i].x << " " << enemys[i].y << " "<< enemys[i].inv.bag_size << " ";
+					    for(int j = 0; j < enemys[i].inv.bag_size; j++)
+							out << enemys[i].inv.item_list[j].number << " ";
+						out << std::endl;
+					}
 					out.close();
 				}
 				else 
@@ -541,6 +564,8 @@ int main()
 				////////////// вылет пули //////////////////////////////
 				if (katja.kx != 0)
 					stat.break_casting();
+				if (katja.dy > 0.11 || katja.dy < 0)
+					stat.break_casting();
 				if (stat.cast == 1 && stat.cast_time <= stat.last_cast_time)
 				{
 					int sp = 1;
@@ -549,6 +574,7 @@ int main()
 							sp = -1;
 						}
 					bullet bull(sp, 10, katja.x, katja.y - katja.h / 2 + 10, bullet_texture, "Data/fireball.xml", lvl);
+					stat.mp -= 10;
 					bullets.push_back(bull);
 					katja.can_shot = 0;
 					stat.end_of_casting();
@@ -574,40 +600,32 @@ int main()
 					{
 						if (enemys[i].hp > 0)
 						{
-							if (if_attack && ((katja.dx > 0 && katja.x < enemys[i].x) || (katja.dx < 0 && katja.x > enemys[i].x)
-								|| (!f_L_is_last && katja.x < enemys[i].x) || (f_L_is_last && katja.x > enemys[i].x) ) )
-								{
-									if(katja.can_shot == 1)
-									{
-										int damage = rand() % int(0.5 * 10) + 0.75 * 10;
-										enemys[i].hp = max(0, enemys[i].hp - damage);
-										VD fpb(enemys[i].x, enemys[i].y - 40, damage, 0, 14);
-										stat.add_VD(fpb);
-										katja.can_shot = 0;
-										stat.setTarget(&enemys[i].hp, 100, 0, 0, &enemys[i].anim);
-									}
-								}
-							else 
-								{
-									if (katja.can_be_hit == 1)
-									{
-										if (katja.dy > 0)
-											katja.dy = -0.2;
-										if (katja.x < enemys[i].x)
-											katja.kx = -0.4;
-										else katja.kx = 0.4;
-										srand(time(	NULL));
-										int damage = rand() % int(0.5 * enemys[i].damage) + 0.75 * enemys[i].damage;
-										VD fpb(katja.x, katja.y - katja.h, damage, 0, 14);
-										stat.add_VD(fpb);
-										stat.hp = max(stat.hp - damage, 0);
-										katja.can_be_hit = 0;
-									}
-								}
-
-
+							if (katja.can_be_hit == 1)
+							{
+								if (katja.dy > 0)
+									katja.dy = -0.2;
+								if (katja.x < enemys[i].x)
+									katja.kx = -0.4;
+								else katja.kx = 0.4;
+								srand(time(	NULL));
+								int damage = rand() % int(0.5 * enemys[i].damage) + 0.75 * enemys[i].damage;
+								VD fpb(katja.x, katja.y - katja.h, damage, 0, 14);
+								stat.add_VD(fpb);
+								stat.hp = max(stat.hp - damage, 0);
+								katja.can_be_hit = 0;
+							}
 						}
 					}
+					/*if (sword.getTextureRect().intersects(enemys[i].GetIntRect()) && katja.can_shot)
+					{
+						int damage = rand() % int(0.5 * 10) + 0.75 * 10;
+						enemys[i].hp = max(0, enemys[i].hp - damage);
+						VD fpb(enemys[i].x, enemys[i].y - 40, damage, 0, 14);
+						stat.add_VD(fpb);
+						std::cout << 0;
+						katja.can_shot = 0;
+						stat.setTarget(&enemys[i].hp, 100, 0, 0, &enemys[i].anim);
+					}*/
 				}
 
 				/////////////////////////////updates////////////////////////////////
@@ -646,12 +664,12 @@ int main()
 					bullets[i].draw(window);
 				}
 				for (int i = 0; i < enemys.size(); i++)
-					enemys[i].draw(window, int(enemys[i].x) , int(enemys[i].y));
+					enemys[i].draw(window, camera_x, camera_y, inv);
 				katja.draw(window, int(katja.x), int(katja.y));
 				stat.draw(window, camera_x, camera_y, alpha);
 				if (on_inventar)
 				{
-					inv.draw(window, camera_x, camera_y);
+					inv.draw_main(window, camera_x, camera_y, stat);
 				}
 				window.display();
 			}

@@ -1,8 +1,28 @@
 <!DOCTYPE HandMadedItems>
 <sprites image="Data/items_icons.png">
-  <item number ="0" title="empty slot" w="32" x="96" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
-  <item number ="1" title="sword" w="32" x="0" y="0" h="32" hp ="0" mp ="0" dmg ="10"/>
-  <item number ="2" title="hat" w="32" x="32" y="0" h="32" hp ="10" mp ="10" dmg ="0"/>
-  <item number ="3" title="boots" w="32" x="0" y="32" h="32" hp ="0" mp ="20" dmg ="0"/>
-  <item number ="4" title="body"  w="32" x="32" y="32" h="32" hp ="50" mp ="0" dmg ="0"/>
+  <item number ="0" title="Пусто" slot="Empty" w="32" x="128" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="1" title="Пусто Head" slot="Head" w="32" x="0" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="2" title="Пусто Neck" slot="Neck" w="32" x="32" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="3" title="Пусто Shoulders" slot="Shoulders" w="32" x="64" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="4" title="Пусто Chest" slot="Chest" w="32" x="96" y="0" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="5" title="Пусто Hands" slot="Hands" w="32" x="0" y="32" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="6" title="Пусто Ring" slot="Ring" w="32" x="32" y="32" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="7" title="Пусто Legs" slot="Legs" w="32" x="64" y="32" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="8" title="Пусто Feet" slot="Feet" w="32" x="96" y="32" h="32" hp ="0" mp ="0" dmg ="0"/>
+  <item number ="9" title="Hat" slot="Head" w="32" x="32" y="64" h="32" hp ="0" mp ="30" dmg ="0"/>
+  <item number ="10" title="Helement" slot="Head" w="32" x="0" y="64" h="32" hp ="30" mp ="0" dmg ="0"/>
+  <item number ="11" title="Amber Amulet" slot="Neck" w="32" x="64" y="64" h="32" hp ="0" mp ="10" dmg ="0"/>
+  <item number ="12" title="Gold Amulet" slot="Neck" w="32" x="96" y="64" h="32" hp ="10" mp ="0" dmg ="0"/>
+  <item number ="13" title="Fabric Shoulders" slot="Shoulders" w="32" x="0" y="96" h="32" hp ="0" mp ="20" dmg ="0"/>
+  <item number ="14" title="Mail Shoulders" slot="Shoulders" w="32" x="32" y="96" h="32" hp ="20" mp ="0" dmg ="0"/>
+  <item number ="15" title="Armored Chest" slot="Chest" w="32" x="64" y="96" h="32" hp ="50" mp ="0" dmg ="0"/>
+  <item number ="16" title="Skiny Chest" slot="Chest" w="32" x="96" y="96" h="32" hp ="0" mp ="50" dmg ="0"/>
+  <item number ="17" title="Military Gloves" slot="Hands" w="32" x="0" y="128" h="32" hp ="15" mp ="0" dmg ="0"/>
+  <item number ="18" title="Magic Gloves of Fire" slot="Hands" w="32" x="32" y="128" h="32" hp ="0" mp ="15" dmg ="0"/>
+  <item number ="19" title="Dragon's Ring" slot="Ring" w="32" x="64" y="128" h="32" hp ="10" mp ="0" dmg ="0"/>
+  <item number ="20" title="Blue Magical Ring" slot="Ring" w="32" x="96" y="128" h="32" hp ="0" mp ="10" dmg ="0"/>
+  <item number ="21" title="Jocker's Pants" slot="Legs" w="32" x="0" y="160" h="32" hp ="0" mp ="20" dmg ="0"/>
+  <item number ="22" title="Pants of Big Power" slot="Legs" w="32" x="32" y="160" h="32" hp ="20" mp ="0" dmg ="0"/>
+  <item number ="23" title="Knigth's Boots" slot="Feet" w="32" x="64" y="160" h="32" hp ="15" mp ="0" dmg ="0"/>
+  <item number ="24" title="Merlin's Boots" slot="Feet" w="32" x="96" y="160" h="32" hp ="0" mp ="15" dmg ="0"/>
 </sprites>

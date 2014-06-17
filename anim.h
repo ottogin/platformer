@@ -95,7 +95,8 @@ public:
 			Animation anim;
 			currentAnim = animElement->Attribute("title");
 			int delay = atoi(animElement->Attribute("delay")); 
-			anim.speed = 1.0/delay; anim.sprite.setTexture(t); 
+			anim.speed = 1.0/delay; 
+			anim.sprite.setTexture(t); 
 
 			TiXmlElement *cut;
 			cut = animElement->FirstChildElement("cut");
@@ -155,6 +156,11 @@ public:
 	float getH()  {return animList[currentAnim].frames[0].height;}
 
 	float getW() {return animList[currentAnim].frames[0].width;}
+
+	Sprite getSprite()
+	{
+		return animList[currentAnim].sprite;
+	}
 
 };
 

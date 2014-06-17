@@ -49,6 +49,7 @@ String fraz(float a)
 	return b;
 }
 
+
 class statis
 {
 public:
@@ -66,10 +67,10 @@ public:
 	float cast_time;
 	float last_cast_time;
 	bool target;
-	int full_hp;
-	int hp;
+	float full_hp;
+	float hp;
 	float mp;
-	int full_mp;
+	float full_mp;
 	statis(Texture &text, Texture &t, String name = "Data/statistic.xml")
 	{
 		anim.loadFromXML(name, text);
@@ -135,37 +136,37 @@ public:
 
 		/////     υο    ///////
 
-		RectangleShape a(Vector2f(hp, 10));
-		RectangleShape b(Vector2f(full_hp - hp, 10));
-		RectangleShape a1(Vector2f(mp, 10));
-		RectangleShape b1(Vector2f(full_mp - mp, 10));
+		RectangleShape a(Vector2f(hp / full_hp * 100, 10));
+		RectangleShape b(Vector2f(100, 10));
+		RectangleShape a1(Vector2f(mp / full_mp * 100, 10));
+		RectangleShape b1(Vector2f(100, 10));
 		a.setFillColor(Color::Green);
 		b.setFillColor(Color::Red);
 		a1.setFillColor(Color::Blue);
 		b1.setFillColor(Color::Red);
 		a.setPosition(x + w, y + h - 26);
-		b.setPosition(x + w + hp, y + h - 26);
+		b.setPosition(x + w , y + h - 26);
 		a1.setPosition(x + w, y + h - 13);
-		b1.setPosition(x + w + mp, y + h - 13);
-		window.draw(a);
+		b1.setPosition(x + w , y + h - 13);
 		window.draw(b);
-		window.draw(a1);
+		window.draw(a);
 		window.draw(b1);
+		window.draw(a1);
 
-		String str = raz(hp) + '/' + raz(full_hp);
-		String str1 = raz(hp);
 		Text Text;
 		Text.setFont(font);
+		String str = raz(hp) + '/' + raz(full_hp);
+		String str1 = raz(hp);
 		Text.setString(str);
 		Text.setCharacterSize(14);
 		Text.setColor(Color::Black);
-		Text.setPosition( x + w + full_hp / 2 - str1.getSize() * 10, y + h - 30);
+		Text.setPosition( x + w + 100 / 2 - str1.getSize() * 10, y + h - 30);
 		window.draw(Text);
 
 		str = raz(mp) + '/' + raz(full_mp);
 		str1 = raz(mp);
 		Text.setString(str);
-		Text.setPosition( x + w + full_mp / 2 - str1.getSize() * 10, y + h - 17);
+		Text.setPosition( x + w + 100 / 2 - str1.getSize() * 10, y + h - 17);
 		window.draw(Text);
 
 		/////////////  φελό /////////////////
@@ -261,6 +262,7 @@ public:
 			window.draw(cast_shape);
 			window.draw(cast_shape2);
 			printstr = fraz(last_cast_time);
+
 			Text.setString(printstr);
 			Text.setCharacterSize(20);
 			Text.setColor(Color::White);

@@ -8,7 +8,7 @@
   <cut w="31" x="329" y="539" h="45" row="1" col="1"/>
   <cut w="32" x="368" y="539" h="45" row="1" col="1"/>
  </animation>
- <animation title="1attack" delay="190">
+ <animation title="1attack" delay="300">
   <cut w="31" x="8" y="602" h="46" row="1" col="1"/>
   <cut w="40" x="48" y="602" h="46" row="1" col="1"/>
  </animation>
